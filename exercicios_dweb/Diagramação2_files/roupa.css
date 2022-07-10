@@ -1,0 +1,76 @@
+
+.flex-container{
+    display: flex;
+    flex-direction: column;
+    background-color:rgb(228, 228, 228);
+    width: 30%;
+    float: left;
+}
+#section-principal{
+    padding: 1% 7% 7% 7%;
+}
+.flex-container-2{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 65%;
+    float: right;
+    padding: 1%;
+}
+.learnmore{
+    text-align: center;
+}
+.learnmore{
+    text-align: center;
+}
+.texto1{
+    text-align: justify;
+}
+.texto2{
+    text-align: justify;
+}
+.texto3{
+    text-align: justify;
+}
+
+.raposa{
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+.avatar{
+    border-radius: 75%;
+}
+
+.figura1 p{
+    width: 100px;
+    display: inline;
+}
+.figura1 img{
+    float:right;
+}
+.figura2 img{
+    float: left;
+    margin-right: 10px;
+}
+nav, ul, li{
+    display: inline;
+    padding: 1%;
+}
+nav, ul{
+    width: 100%;
+    text-align: center;
+}
+nav, a{
+    text-decoration: none;
+    color: black;
+}
+header{
+    background-color: white;
+    padding: 3%;
+}
+body{
+    background-color: rgb(228, 228, 228);
+}
+li{
+    border: 1px solid black;
+}
