@@ -1,56 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <title>CEFETFLIX</title>
-    <script src="./js/app.js" defer></script>
-</head >
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CEFETFLIX</title>
+	<link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="receive.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+</head>
 <body>
-    <section class="catalogo">
-        <div class="catalogo">
-            <img src="receitas.jpg" alt="fig do filme">
-            <h3>Catálogo</h3>
-            <p class="titulo">Titulo do filme</p>
-            <div class="resumo">
-                <ul>
-                    <li>Resumo do filme</li>
-            </div>
-            <div class="generos">
-                <ul>
-                    <li>Gênero</li>
-                </ul>
-
-            </div>
-            <div class="tituloSemelhantes">
-                <ul>
-                    <li>Titulo semelhantes</li>
-                </ul>
-
-            </div>
-            <div class="classificacao">
-                <ul>
-                    <li>Classificação</li>
-                </ul>
-
-            </div>
-            <div class="elenco">
-                <ul>
-                    <li>Elenco</li>
-                </ul>
-
-            </div>
-            <div class="opinioes">
-                <ul>
-                    <li>Opinioes</li>
-                </ul>
-                <div class="descricao">
-                    <ol>
-                        <li>Descrição</li>
-                    </ol>
-    
-                </div>
-            </div>
-        </div>
-    </section>
+	<div class='titulo'>
+	<h1>CEFETFLIX - Filmes e séries</h1>
+	</div>
+	<div class="movies"></div>
 </body>
+<script src="js/get.js"></script>
+<script src="js/app.js"></script>
 </html>

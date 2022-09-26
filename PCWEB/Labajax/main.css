@@ -1,0 +1,58 @@
+.card-name {
+	text-align: center;
+	width: 30rem;
+	margin: 0 auto 2rem auto;
+	padding: 1rem;
+	border-radius: 25px;
+}
+
+.card-flex {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 2rem;
+}
+
+.card {
+	text-align: center;
+	background-color: #000;
+	width: 25rem;
+	margin: 0 1rem 2rem 0;
+	padding: 2rem;
+	border-radius: 25px;
+}
+
+.card:last-child {
+	margin: 0 auto 2rem auto;
+}
+
+h1 {
+	margin-bottom: 1rem;
+}
+
+.inputTitles {
+	display: block;
+}
+
+input, select {
+	margin-bottom: 1rem;
+}
+
+body {
+	background-color: #181A1B;
+	color: #E8E6E3;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+h1{
+    text-align: center;
+    background-color: darkred;
+}
+
+h2{
+    text-align: center;
+    background-color: darkred;
+    font-size: 300%;
+}

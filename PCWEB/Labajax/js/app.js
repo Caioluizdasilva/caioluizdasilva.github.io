@@ -1,99 +1,125 @@
-//criar o objeto XMLHttpRequest
-let xhttp = new XMLHttpRequest()
+const http = new EasyAjax
+http.get('https://rafaelescalfoni.github.io/desenv_web/filmes.json', function(status, response){
+    if(status){
+        console.log(status);
+    } else {
 
-let url = "https://rafaelescalfoni.github.io/desenv_web/filmes.json"
+        let Texto = '';
+        let ages = [];
 
-let criaLista = lista => {
-   /* let items = ""
-    lista.forEach(item =>{
-        items += `<li>${item}</li>`
-    })
-    return items
-    */
-   return lista.reduce(function(elementos, item){
-       return elementos + `<li>${item}</li>`
-   }, "")
-}
+        const star = document.createElement("img");
+        star.setAttribute("src","./img/estrela");
+        const starHalf = document.createElement("img");
+        starHalf.setAttribute("src","./img/meiaestrela");
 
-let criacatalogo = catalogo =>{
-    return `<!DOCTYPE html>
-    <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <title>CEFETFLIX</title>
-        <script src="./js/app.js" defer></script>
-    </head >
-    <body>
-        <section class="catalogo">
-            <div class="catalogo">
-                <img src="${catalogo.figura}" alt="${catalo.id}">
-                <h3>Catálogo</h3>
-                <p class="titulo">${catalogo.titulo}</p>
-                <div class="resumo">
-                    <ul>
-                    ${criacatalogo(catalogo.resumo)}
+        response.forEach(data => {
+            const showRating = document.createElement("div");
+            let castTexto = '<h3>Elenco</h3>';
+            let generosTexto = '<h3>Gênero</h3>';
+            let similarTexto = '<h3>Similares</h3>';
+            let opinioesTexto = '';
+            let media = 0;
+
+            function eachForLoops() 
+                {data.elenco.forEach(cast => {
+                    const li = document.createElement("li");
+                    li.appendChild(document.createTextNode(cast));
+                    castTexto += li.outerHTML;
+                });
+
+                data.generos.forEach(genre => {
+                    const li = document.createElement("li");
+                    li.appendChild(document.createTextNode(genre));
+                    generosTexto += li.outerHTML;
+                });
+
+                data.opinioes.forEach((opinion, k) => {
+                    const starDiv = document.createElement("div");
+                    starDiv.className = 'rating'
+                    const span = document.createElement("span");
+                    span.appendChild(document.createTextNode(opinion.descricao));
+                    for(let i=0;i<opinion.rating;i++){
+                        starDiv.appendChild(star.cloneNode(true)); 
+                    }
+                    media = (media + opinion.rating)/(k + 1);
+                    span.appendChild(starDiv);
+                    opinioesTexto += span.outerHTML;
+                });
+
+                data.titulosSemelhantes.forEach((similar, k) => {
+                    response.forEach(test => {
+                        if(test.id == similar) {
+                            const li = document.createElement("li");
+                            li.appendChild(document.createTextNode(test.titulo));
+                            similarTexto += li.outerHTML;
+                        }
+                    });
+                });
+
+                for(let i = 0; i < media; i++){
+                if(media % 1 !== 0 && i+1 >= media){
+                    showRating.appendChild(starHalf.cloneNode(true));
+                    break;
+                }
+                showRating.className = 'showRating';
+                showRating.appendChild(star.cloneNode(true)); 
+                }
+            } eachForLoops();
+
+            Texto += `<div class="card">
+            <div class="movie">
+                <div class="imageContainer">
+                    <img src=${data.figura}>
                 </div>
-                <div class="generos">
+            <div class="description">
+                <h2>${data.titulo}</h2>
+                ${showRating.outerHTML}
+                <h4>${data.resumo}</h4>
+                
+                <hr> 
+                
+                <div class="showInfo">
+                <div class="cast">
                     <ul>
-                    ${criacatalogo(catalogo.generos)}
+                        ${castTexto}
                     </ul>
-    
                 </div>
-                <div class="titulos">
+                <div class="similar">
                     <ul>
-                    ${criacatalogo(catalogo.tituloSemelhantes)}
+                        ${similarTexto}
                     </ul>
-    
                 </div>
-                <div class="classificacao">
-                <ul>
-                   ${criacatalogo(catalogo.classificacao)}
-                </ul>
-
-            </div>
-            <div class="elenco">
-                <ul>
-                ${criacatalogo(catalogo.elenco)}
-                </ul>
-
-            </div>
-            <div class="opinioes">
-                <ul>
-                ${criacatalogo(catalogo.opinioes)}
-                </ul>
-                <div class="descricao">
-                    <ol>
-                    ${criacatalogo(catalogo.descricao)}
-                    </ol>
-    
+                <div class ="genrers">
+                    <ul>
+                        ${generosTexto}
+                    </ul>
                 </div>
-    
-    
+                <div class="reviews">
+                ${opinioesTexto}
+                </div>
             </div>
-    
-        </section>
-    </body>
-    </html>` }
-//evento ao alterar o estado da requisição
-xhttp.onreadystatechange = function(){
-    //recebeu uma resposta (readyStat == 4)
-    //estado de resposta é sucesso (status == 200)
-    if(this.readyState == 4 && xhttp.status == 200){
-        console.log(this.responseText)
-        let receitas = JSON.parse(this.responseText)
-        let secao = document.querySelector(".catalogo")
-        receitas.forEach(prato => {
-            secao.innerHTML += criacatalogo(catalogo)
-        })
+            </div>
+            </div>
+        </div>`; 
+
+        document.querySelector('.movies').innerHTML = Texto;
+
+        ages.push(data.classificacao);
+        });
+        const movie = document.querySelectorAll('.movie');
+            movie.forEach((element,k) => {
+                if(ages[k] == 0){
+                    element.dataset.content = '\u00a0L';
+                    console.log('h1')
+                } else element.dataset.content = ages[k];
+
+                if (ages[k] <= 14) element.classList.toggle('green');
+                else if(ages[k] < 18) {
+                    element.classList.toggle('yellow');
+                    element.style.color='black'
+                }
+                else if (ages[k] = 18) element.classList.toggle('red');
+                
+            });
     }
-}
-
-//prepara a requisição
-//configurar o objeto AJAX
-// Parâmetro 1. verbo GET
-// Parâmetro 2. caminho (URL)
-// Parâmetro 3. tipo de requisição - assíncrona (true), síncrona (false).
-xhttp.open("GET", url, true)
-
-//envia a requisição
-xhttp.send()
+});
