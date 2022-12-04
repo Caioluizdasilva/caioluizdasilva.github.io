@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/numero31.js" defer></script>
+    <style>
+    css
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.card_img{
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    margin: 25px;
+}
+
+.small_img{
+    height: 100%;
+    cursor: pointer;
+    transition: all linear 0.4s;
+}
+.small_img:hover{
+    filter: grayscale(100%);
+    transform: scale(1.1);
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#modal_img{
+    width: 65vw;
+    transform: scale(0);
+    transition: all linear .3s;
+}
+
+.modal_active #modal_img{
+    transform: scale(1);
+}
+.modal{
+
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .7);
+    position: fixed;
+    visibility: hidden;
+    z-index: 1;
+    opacity: 0;
+    transition: visibility 0.8s linear, opacity 0.5s linear;
+}
+
+.modal_content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#bt_close{
+    color:#fff;
+    background-color: #000;
+    position: absolute;
+    top:10px;
+    right: 10px;
+    padding: 5px 10px;
+    font-size: 25px;
+    border:solid 1px #fff;
+    transition: all ease-out .4s;
+    cursor: pointer;
+}
+#bt_close:hover{
+    background-color: #f00;
+}
+
+.modal_active{
+    visibility: visible;
+    opacity: 1;
+
+}
+    </style>
+
+
+    <title>Prova de Recuperação - 2 tri</title>
+</head>
+<body>
+    <h1>Prova de recuperação, de JavaScript</h1>
+    <h2>Questão</h2>
+    <p>31-Crie uma galeria com MxN miniaturas de imagens. Ao clicar em cada imagem, a imagem deveráaparecer ampliada em uma DIV específica da página. </p>
+    <div class="modal">
+        <div class="modal_content">
+            <img src="imagens/01.jpg" id="modal_img">
+        </div>
+        <span id="bt_close">&times;</span>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="card_img">
+                <img src="imagens/01.jpg" class="small_img">
+            </div>
+            <div class="card_img">
+                <img src="imagens/02.jpg" class="small_img">
+            </div>
+            <div class="card_img">
+                <img src="imagens/03.jpg" class="small_img">
+            </div>
+        </div>
+        <div class="row">
+            <div class="card_img">
+                <img src="imagens/04.jpg" class="small_img">
+            </div>
+            <div class="card_img">
+                <img src="imagens/05.jpg" class="small_img">
+            </div>
+            <div class="card_img">
+                <img src="imagens/06.jpg" class="small_img">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

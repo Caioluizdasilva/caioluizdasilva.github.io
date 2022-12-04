@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/numero22.js" defer> </script>
+    <style type="text/css">
+       *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans";
+}
+
+.laranja{
+    background-color: rgb(243, 173, 43);
+    transition: all 0.25s ease-in-out;
+}
+.vermelho{
+    background-color: rgb(175, 40, 40);
+    transition: all 0.25s ease-in-out;
+}
+.purpura{
+    background-color: rgb(109, 29, 109);
+    transition: all 0.25s ease-in-out;
+}
+.branco{
+  backgroud-color: rgb(109, 29, 109);
+  transition: all 0.25s ease-in-out;
+}
+
+button{
+    padding: 5px 10px;
+    border: 0;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 300;
+    margin: 0 10px;
+}
+
+div.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 90vw;
+    text-align: center;
+}
+      </style>
+    <title>Prova de Recuperação - 2 tri</title>
+</head>
+<body>
+    <h1>Prova de recuperação, de JavaScript</h1>
+    <h2>Questão</h2>
+    <br>
+    <p>22-Crie uma página com uma lista (select) com 4 opções de cores. Ao selecionar uma opção de cor, altere o plano de fundo da página para a cor específica.</p>
+     
+     <div class="container">
+        <button class="laranja" id="btn-laranja">Amarelo</button>
+        <button class="vermelho" id="btn-vermelho">Vermelho</button>
+        <button class="purpura" id="btn-purpura">Roxo</button>
+  <button class="branco" id="btn-branco">Branco</button>
+</div>
+</body>
+</html>
