@@ -1,3 +1,20 @@
+// Passo o ID do produto atraves do metodo get para a pagina "detalhes.js"
+var passaValor= function(ite,){
+    window.location = "detalhes.html?produto="+item;
+}
+
+var links = document.getElementsByTagName('a');
+    for(var i = 0; i < links.length; i++){
+        links[i].addEventListener("click",function(){
+            let key = this.getAttribute('key');
+            console.log("O valor é: " + key);
+
+            var valorQueEuQueroPassar = key;
+            passaValor(valorQueEuQueroPassar);
+            return false;
+        })
+    }
+
 window.onload = async () => {
     await fetch('https://rafaelescalfoni.github.io/desenv_web/restaurante/items.json')
         .then(async response => await response.json())
@@ -25,19 +42,4 @@ const createItem = (item) => {
                 </div>`
     items.innerHTML += div
 }
-// Passo o ID do produto atraves do metodo get para a pagina "detalhes.js"
-        var passaValor= function(ite,){
-            window.location = "detalhes.html?produto="+item;
-        }
-        
-        var links = document.getElementsByTagName('a');
-            for(var i = 0; i < links.length; i++){
-                links[i].addEventListener("click",function(){
-                    let key = this.getAttribute('key');
-                    console.log("O valor é: " + key);
-        
-                    var valorQueEuQueroPassar = key;
-                    passaValor(valorQueEuQueroPassar);
-                    return false;
-                })
-            }
+
