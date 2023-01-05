@@ -24,13 +24,13 @@ window.onload = async () => {
             })
         })
 }
-
+// Hora de pegar as coisas do site do Escalfoni 
 const createItem = (item) => {
-    const items = document.querySelector(".items")
+    const items = document.querySelector(".items") // Criado a variavel item
     const name = typeof item.name !== 'undefined' ? item.name : item.title
     const prices = item.price.split('$')
-    console.log(prices)
-    const div = `<div class="col-3 mb-5">
+    console.log(prices)   // Substitundo os items
+    const div = `<div class="col-3 mb-5"> 
                     <div class="card h-100" style="width: 18rem;">
                         <img src="${'https://raw.githubusercontent.com/rafaelescalfoni/rafaelescalfoni.github.io/main/desenv_web/restaurante/' + item.photo}" class="card-img-top" alt="${name}">
                         <div class="card-body d-flex align-items-start flex-column">
